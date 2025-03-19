@@ -78,6 +78,34 @@ passport.use(new LocalStrategy(
     }
 ));
 
+//google auth
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID, // from Google Cloud Console
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET, // from Google Cloud Console
+//     callbackURL: "http://localhost:5000/auth/google/callback", // Callback URL
+//   },
+//   async (accessToken, refreshToken, profile, done) => {
+//     try {
+//       let user = await User.findOne({ googleId: profile.id });
+
+//       if (!user) {
+//         // Create a new user if they don't exist
+//         user = new User({
+//           googleId: profile.id,
+//           name: profile.displayName,
+//           email: profile.emails[0].value, // Google provides the user's email
+//         });
+//         await user.save();
+//       }
+
+//       // Return the user object
+//       done(null, user);
+//     } catch (error) {
+//       done(error, null);
+//     }
+//   }
+// ));
+
 
 passport.serializeUser((user, done) => {
     console.log("Serializing User:", user); 
