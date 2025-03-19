@@ -11,7 +11,12 @@ require('dotenv').config();
 const MongoStore = require('connect-mongo');
 
 const User = require('./models/User');
+const Unit = require('./models/Unit');
+const Subject = require('./models/Subject');
+const Year = require('./models/Year');
 const authRoutes = require('./routes/authRoutes');
+const selectionRoutes = require('./routes/selectionRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 
 const app = express();
@@ -144,6 +149,8 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/auth', authRoutes);
+app.use('/select', selectionRoutes);
+app.use('/payment', paymentRoutes);
 
 
 app.get("/", (req, res) => {
