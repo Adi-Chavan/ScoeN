@@ -45,15 +45,15 @@ router.post("/logout", (req, res) => {
   });
 
   // Redirect to Google for authentication
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+// router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-// Google callback after authentication
-router.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/signin' }),
-  (req, res) => {
-    // Successful authentication, redirect to the desired page
-    res.redirect('/');
-  }
-);
+// // Google callback after authentication
+// router.get('/google/callback', 
+//   passport.authenticate('google', { failureRedirect: '/signin' }),
+//   (req, res) => {
+//     // Successful authentication, redirect to the desired page
+//     res.redirect('/');
+//   }
+// );
 
 module.exports = router;
