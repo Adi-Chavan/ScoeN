@@ -34,11 +34,11 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link to="/" className="hidden md:block text-sm font-medium">
+          <Link to="/" className="hidden md:block text-sm font-medium hover:text-blue-600">
             About Us
           </Link>
-          <Link to="/" className="hidden md:block text-sm font-medium">
-            Explore
+          <Link to="/" className="hidden md:block text-sm font-medium hover:text-blue-600">
+            Explore Courses
           </Link>
           <Link to="/signin">
            <Button className="hidden sm:block text-sm font-medium ">
@@ -97,12 +97,16 @@ export function Navbar() {
                 )}
               </div> */}
 
-              <div className="text-sm font-medium py-2">
-                ScoeN Business
-              </div>
-              <div className="text-sm font-medium py-2">
-                Teach on ScoeN
-              </div>
+              <Link to="">
+                <div className="text-sm font-medium py-2">
+                  About Us
+                </div>
+              </Link>
+              <Link to="/">
+                <div className="text-sm font-medium py-2">
+                  Exlpore Courses
+                </div>
+              </Link>
 
               <div className="flex gap-2 mt-2">
                 <Link to="/signin" className="flex-1">

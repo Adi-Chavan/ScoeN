@@ -110,11 +110,11 @@ export function SignUpPage() {
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 I agree to the{" "}
-                <Link href="#" className="text-blue-600 hover:underline">
+                <Link to="#" className="text-blue-600 hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="#" className="text-blue-600 hover:underline">
+                <Link to="#" className="text-blue-600 hover:underline">
                   Privacy Policy
                 </Link>
               </label>
@@ -127,7 +127,7 @@ export function SignUpPage() {
 
           <p className="text-center text-sm mt-6">
             Already have an account?{" "}
-            <Link href="/signin" className="text-blue-600 hover:underline">
+            <Link to="/signin" className="text-blue-600 hover:underline">
               Log in
             </Link>
           </p>

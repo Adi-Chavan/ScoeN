@@ -3,25 +3,23 @@ import { Camera, Edit } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
-import { Textarea } from "../../components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
 import { Link } from "react-router-dom"
 import { Studentnav } from "./studentnav"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
-// import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-// import { DashboardSidebar } from "@/components/dashboard-sidebar"
+
 
 export function ProfilePage() {
-  const [activeTab, setActiveTab] = useState("profile")
+  const [activeTab, setActiveTab] = useState("courses")
 
   const [profile] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
-    bio: "Frontend developer passionate about creating intuitive user experiences. Currently learning React and TypeScript.",
+    year: "2nd Year",
+    branch: "Information Technology",
     college: "SCOE",
-    website: "johndoe.com",
-    twitter: "@johndoe",
     linkedin: "linkedin.com/in/johndoe",
     github: "github.com/johndoe",
     joinDate: "January 2023",
@@ -65,6 +63,34 @@ export function ProfilePage() {
     },
   ])
 
+
+  const colleges = [
+    "Select",
+    "SCOE",
+    "SKN",
+    "NBN",
+    "RMD",
+    "Other",
+  ]
+
+  const collegeYears = [
+    "1st Year",
+    "2nd Year",
+    "3rd Year",
+    "4th Year"
+  ]
+
+  const branchs = [
+    "Computer Science",
+    "Information Technology",
+    "Electronic and Telecommunicataion",
+    "Mechanical Engineering",
+    "Civil Engineering",
+    "Chemistry Engineering",
+    "Bio Engineering",
+  ]
+
+
   return (
     <div>
       <div className="min-h-screen">
@@ -106,12 +132,16 @@ export function ProfilePage() {
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-sm font-medium text-gray-500 mb-1">Bio</h3>
-                      <p className="text-sm">{profile.bio}</p>
-                    </div>
-                    <div>
                       <h3 className="text-sm font-medium text-gray-500 mb-1">College Name</h3>
                       <p className="text-sm">{profile.college}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500 mb-1">Year</h3>
+                      <p className="text-sm">{profile.year}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500 mb-1">Branch</h3>
+                      <p className="text-sm">{profile.branch}</p>
                     </div>
                     <div>
                       <h3 className="text-sm font-medium text-gray-500 mb-1">Member Since</h3>
@@ -195,10 +225,10 @@ export function ProfilePage() {
             </div>
 
             <div className="lg:col-span-2">
-              <Tabs defaultValue="profile" className="w-full" onValueChange={setActiveTab}>
+              <Tabs defaultValue="courses" className="w-full" onValueChange={setActiveTab}>
                 <TabsList className="grid w-full grid-cols-3 ">
                   <TabsTrigger value="profile">Profile Details</TabsTrigger>
-                  <TabsTrigger value="certificates">My Courses</TabsTrigger>
+                  <TabsTrigger value="courses">My Courses</TabsTrigger>
                   <TabsTrigger value="achievements">Achievements</TabsTrigger>
                 </TabsList>
 
@@ -223,41 +253,65 @@ export function ProfilePage() {
                             </label>
                             <Input id="email" type="email" defaultValue={profile.email} />
                           </div>
-                          <div className="space-y-2">
-                            <label htmlFor="location" className="text-sm font-medium">
-                              College Name
-                            </label>
-                            <Input id="location" defaultValue={profile.college} />
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="website" className="text-sm font-medium">
-                              Website
-                            </label>
-                            <Input id="website" defaultValue={profile.website} />
-                          </div>
                         </div>
 
                         <div className="space-y-2">
-                          <label htmlFor="bio" className="text-sm font-medium">
-                            Bio
+                          <label htmlFor="college" className="text-sm font-medium">
+                            College/University
                           </label>
-                          <Textarea
-                            id="bio"
-                            defaultValue={profile.bio}
-                            rows={4}
-                            placeholder="Tell us about yourself"
-                          />
+                          <Select defaultValue={profile.college}>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select your college" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {colleges.map((college) => (
+                                <SelectItem key={college} value={college}>
+                                  {college}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-sm font-medium">Social Profiles</h3>
+                          <label htmlFor="collegeYear" className="text-sm font-medium">
+                            Year
+                          </label>
+                          <Select defaultValue={profile.year}>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select your year" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {collegeYears.map((year) => (
+                                <SelectItem key={year} value={year}>
+                                  {year}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <label htmlFor="branch" className="text-sm font-medium">
+                            Branch
+                          </label>
+                          <Select defaultValue={profile.branch}>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select your branch" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {branchs.map((branch) => (
+                                <SelectItem key={branch} value={branch}>
+                                  {branch}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <h3 className="text-md font-semibold">Social Profiles</h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <label htmlFor="twitter" className="text-sm font-medium">
-                                Twitter
-                              </label>
-                              <Input id="twitter" defaultValue={profile.twitter} />
-                            </div>
                             <div className="space-y-2">
                               <label htmlFor="linkedin" className="text-sm font-medium">
                                 LinkedIn
@@ -281,7 +335,7 @@ export function ProfilePage() {
                   </Card>
                 </TabsContent>
 
-                <TabsContent value="certificates" className="mt-6">
+                <TabsContent value="courses" className="mt-6">
                   <Card>
                     <CardHeader>
                       <CardTitle>My Courses</CardTitle>
@@ -305,9 +359,11 @@ export function ProfilePage() {
                                 Issued by {course.issuer} • {course.date}
                               </p>
                               <div className="flex gap-2">
-                                <Button size="sm" variant="outline">
-                                  View
-                                </Button>
+                                <Link to={`/learn/${course.id}`}>
+                                  <Button size="sm" variant="outline">
+                                    View
+                                  </Button>
+                                </Link>
                               </div>
                             </div>
                           </div>

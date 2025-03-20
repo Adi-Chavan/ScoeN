@@ -5,6 +5,9 @@ import { SignInPage } from "./pages/auth/signin";
 import { SignUpPage } from "./pages/auth/signup";
 import { ProfilePage } from "./pages/student/profile";
 import { Courses } from "./pages/courses";
+import { CourseDetailsPage } from "./pages/coursesDetail";
+import { CartPage } from "./pages/cart";
+import { CourseViewerPage } from "./pages/student/viewCourses";
 
 export default function App() {
   return (
@@ -15,6 +18,9 @@ export default function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetailsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/learn/:id" element={<CourseViewerPage />} />
       </Routes>
     </Router>
   )
