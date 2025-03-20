@@ -34,7 +34,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link to="/" className="hidden md:block text-sm font-medium hover:text-blue-600">
+          <Link to="/profile" className="hidden md:block text-sm font-medium hover:text-blue-600">
             About Us
           </Link>
           <Link to="/" className="hidden md:block text-sm font-medium hover:text-blue-600">
