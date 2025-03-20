@@ -42,27 +42,6 @@ export function ProfilePage() {
     },
   ])
 
-  const [achievements] = useState([
-    {
-      id: 1,
-      title: "30-Day Streak",
-      description: "Completed lessons for 30 consecutive days",
-      icon: "⏱️",
-    },
-    {
-      id: 2,
-      title: "Course Champion",
-      description: "Completed 5 courses",
-      icon: "🏆",
-    },
-    {
-      id: 3,
-      title: "Quiz Master",
-      description: "Scored 100% on 10 quizzes",
-      icon: "📝",
-    },
-  ])
-
 
   const colleges = [
     "Select",
@@ -226,10 +205,9 @@ export function ProfilePage() {
 
             <div className="lg:col-span-2">
               <Tabs defaultValue="courses" className="w-full" onValueChange={setActiveTab}>
-                <TabsList className="grid w-full grid-cols-3 ">
+                <TabsList className="grid w-full grid-cols-2 ">
                   <TabsTrigger value="profile">Profile Details</TabsTrigger>
                   <TabsTrigger value="courses">My Courses</TabsTrigger>
-                  <TabsTrigger value="achievements">Achievements</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="profile" className="mt-6">
@@ -373,30 +351,6 @@ export function ProfilePage() {
                   </Card>
                 </TabsContent>
 
-                <TabsContent value="achievements" className="mt-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>My Achievements</CardTitle>
-                      <CardDescription>Badges and achievements you've earned</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        {achievements.map((achievement) => (
-                          <div
-                            key={achievement.id}
-                            className="flex flex-col items-center p-6 border rounded-lg text-center"
-                          >
-                            <div className="bg-blue-100 p-4 rounded-full mb-4">
-                              <span className="text-2xl">{achievement.icon}</span>
-                            </div>
-                            <h3 className="font-bold mb-2">{achievement.title}</h3>
-                            <p className="text-sm text-gray-600">{achievement.description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
               </Tabs>
             </div>
           </div>
