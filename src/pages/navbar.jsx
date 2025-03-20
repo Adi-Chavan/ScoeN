@@ -97,7 +97,7 @@ export function Navbar() {
                 )}
               </div> */}
 
-              <Link to="">
+              <Link to="/profile">
                 <div className="text-sm font-medium py-2">
                   About Us
                 </div>
