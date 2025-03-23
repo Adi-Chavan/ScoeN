@@ -13,7 +13,7 @@ export function Navbar() {
     <header className="static top-0 z-50 w-full lg:bg-[#F6F5F4] md:bg-[#F6F5F4] lg:px-16 px-6 ">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
+          <Link to="/" className="flex items-center gap-2 font-bold text-3xl">
             {/* <img
               src="/placeholder.svg?height=32&width=32"
               alt="ScoeN Logo"

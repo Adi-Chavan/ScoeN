@@ -51,7 +51,7 @@ export function HomePage() {
       <Navbar />
       <main className="flex-1 relative">
         {/* Hero Section */}
-        <section className="relative py-12 md:py-8 lg:px-16 px-6">
+        <section className="relative py-8 lg:px-16 px-6">
           <div className="container grid gap-6 md:grid-cols-2 items-center">
             <div className="md:space-y-6 space-y-3">
               <p className="text-blue-700 font-semibold mb-4">ज्ञानम् परमम् ध्येयम् सर्वत्र विद्या विजयते</p>
