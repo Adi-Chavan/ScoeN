@@ -5,6 +5,7 @@ import { Studentnav } from './student/studentnav'
 import noteimg from '../components/images/notesimg.png'
 
 export function Courses() {
+
   return (
     <div>
       <Studentnav />
@@ -78,9 +79,11 @@ export function Courses() {
                     className="w-full h-40 object-cover"
                   />
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                    <Button variant="secondary" size="sm" className="gap-1">
+
+
+                   <Button variant="secondary" size="sm" className="gap-1">
                       <Play className="h-4 w-4" /> Preview
-                    </Button>
+                    </Button> 
                   </div>
                 </div>
                 <div className="p-4 flex-1 flex flex-col">

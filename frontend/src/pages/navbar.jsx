@@ -72,7 +72,7 @@ export function Navbar() {
           <Link to="/" className="hidden md:block text-sm font-medium">
             About Us
           </Link>
-          <Link to="/" className="hidden md:block text-sm font-medium">
+          <Link to="/pdf" className="hidden md:block text-sm font-medium">
             Explore
           </Link>
 

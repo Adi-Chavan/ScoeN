@@ -17,6 +17,7 @@ const Year = require('./models/Year');
 const authRoutes = require('./routes/authRoutes');
 const selectionRoutes = require('./routes/selectionRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
+const unitRoutes = require('./routes/unitRoutes');
 
 
 const app = express();
@@ -63,10 +64,12 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
     }
 }));
+app.use("/uploads", express.static("uploads"));
 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
 
 passport.use(new LocalStrategy(
     { usernameField: 'email' },
@@ -151,6 +154,7 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 app.use('/select', selectionRoutes);
 app.use('/payment', paymentRoutes);
+app.use('/units', unitRoutes);
 
 
 app.get("/", (req, res) => {

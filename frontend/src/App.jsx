@@ -5,6 +5,8 @@ import { SignInPage } from "./pages/auth/signin";
 import { SignUpPage } from "./pages/auth/signup";
 import { ProfilePage } from "./pages/student/profile";
 import { Courses } from "./pages/courses";
+import  PDFList from "./pages/PDFList";
+
 
 export default function App() {
   return (
@@ -15,6 +17,7 @@ export default function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/pdf" element={<PDFList />} />
       </Routes>
     </Router>
   )

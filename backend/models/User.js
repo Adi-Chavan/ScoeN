@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 
 const UserSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
+    name: String,
+    // username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    purchasedUnits: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Unit' }] // Tracks purchased units
+    purchasedUnits: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Unit' }], // Tracks purchased units
+    // isVerified: { type: Boolean, default: false }, // Email verification status
+    // verificationToken: { type: String } // Token for verification
 });
 
 module.exports = mongoose.model('User', UserSchema);

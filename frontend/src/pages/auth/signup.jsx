@@ -21,6 +21,28 @@ export function SignUpPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // try {
+        //     const response = await fetch('http://localhost:5000/auth/signup', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({ name: fullName, email, password }),
+        //         credentials: 'include',
+        //     });
+
+        //     if (response.ok) {
+        //         const data = await response.json();
+        //         console.log('User created successfully:', data);
+        //         navigate('/signin'); // Redirect to sign-in page
+        //     } else {
+        //         const errorData = await response.json();
+        //         console.error('Sign-up failed:', errorData);
+        //     }
+        // } catch (error) {
+        //     console.error('Error during sign-up:', error);
+        // }
+
         try {
             const response = await fetch('http://localhost:5000/auth/signup', {
                 method: 'POST',
@@ -30,17 +52,21 @@ export function SignUpPage() {
                 body: JSON.stringify({ name: fullName, email, password }),
                 credentials: 'include',
             });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log('User created successfully:', data);
-                navigate('/signin'); // Redirect to sign-in page
-            } else {
-                const errorData = await response.json();
-                console.error('Sign-up failed:', errorData);
+    
+            const data = await response.json();
+            console.log("Full API Response:", data); // Log to check what backend sends
+    
+            if (!response.ok) {
+                console.error("Sign-up failed:", data);
+                alert(`Error: ${data.message || "Sign-up failed"}`);
+                return;
             }
+    
+            console.log('User created successfully:', data);
+            navigate('/signin');
         } catch (error) {
             console.error('Error during sign-up:', error);
+            alert("An error occurred while signing up.");
         }
     };
 

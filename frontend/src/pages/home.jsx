@@ -7,6 +7,86 @@ import noteimg from "../components/images/notesimg.png"
 import laptop from "../components/images/Laptop.jpg"
 
 export function HomePage() {
+
+//   const handlePayment = async (unitId) => {
+//     try {
+//         const response = await fetch("http://localhost:5000/payment/create", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify({ unitId }),
+//             credentials: "include",
+//         });
+
+//         const data = await response.json();
+//         if (data.success) {
+//             const razorpayOptions = {
+//                 key: "YOUR_RAZORPAY_KEY",
+//                 amount: 1000 * 100, // Amount in paise
+//                 currency: "INR",
+//                 name: "Notes Purchase",
+//                 description: "Get access to study material",
+//                 order_id: data.orderId,
+//                 handler: async function (paymentData) {
+//                     await verifyPayment(unitId, paymentData);
+//                 },
+//                 prefill: {
+//                     email: "user@example.com",
+//                 },
+//                 theme: { color: "#3399cc" },
+//             };
+
+//             const rzp = new window.Razorpay(razorpayOptions);
+//             rzp.open();
+//         } else {
+//             alert("Payment failed: " + data.message);
+//         }
+//     } catch (error) {
+//         console.error("Error processing payment:", error);
+//     }
+// };
+
+// const verifyPayment = async (unitId, paymentDetails) => {
+//   try {
+//       const userId = localStorage.getItem("userId"); // Get user ID from local storage
+
+//       const response = await fetch("http://localhost:5000/payment/verify", {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({ unitId, userId, ...paymentDetails }),
+//           credentials: "include",
+//       });
+
+//       const data = await response.json();
+//       if (data.success) {
+//           alert("Payment successful! You can now access the notes.");
+//           fetchPDF(unitId); // Fetch PDF URL
+//       } else {
+//           alert("Payment verification failed!");
+//       }
+//   } catch (error) {
+//       console.error("Error verifying payment:", error);
+//   }
+// };
+
+// const fetchPDF = async (unitId) => {
+//   try {
+//       const userId = localStorage.getItem("userId");
+
+//       const response = await fetch(`http://localhost:5000/units/pdf/${unitId}?userId=${userId}`);
+//       const data = await response.blob(); // Convert to PDF file
+
+//       if (response.ok) {
+//           const pdfUrl = URL.createObjectURL(data);
+//           window.open(pdfUrl, "_blank"); // Open PDF in new tab
+//       } else {
+//           alert("Access denied: " + data.message);
+//       }
+//   } catch (error) {
+//       console.error("Error fetching PDF:", error);
+//   }
+// };
+
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -64,7 +144,6 @@ export function HomePage() {
                 View all courses <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
                 {
@@ -113,6 +192,12 @@ export function HomePage() {
                       className="w-full h-40 object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                    {/* <button
+                        onClick={() => handlePayment(course.id)}
+                        className="bg-blue-600 text-white px-4 py-2 rounded"
+                        >
+                        Buy Notes
+                    </button> */}
                       <Button variant="secondary" size="sm" className="gap-1">
                         <Play className="h-4 w-4" /> Preview
                       </Button>
