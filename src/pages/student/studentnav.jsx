@@ -11,7 +11,7 @@ export function Studentnav() {
 
   return (
     <div>
-      <header className="sticky top-0 z-50 w-full border-b bg-white px-8 drop-shadow-lg drop-shadow-blue-600/50">
+      <header className="sticky top-0 z-50 w-full border-b lg:px-16 px-6">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
@@ -26,28 +26,21 @@ export function Studentnav() {
             </Link>
           </div>
 
-          <div className="hidden md:flex flex-1 max-w-md mx-4">
-            <div className="relative w-full">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-              <Input type="search" placeholder="Search for anything" className="w-full pl-8 rounded-full bg-gray-100" />
-            </div>
-          </div>
-
           <div className="flex items-center">
             <div className="flex items-center gap-8 ml-auto">
               <div className="hidden md:block">
                 <Link to="/courses">
-                  <Button variant="secondary" className="hidden sm:block text-sm font-medium ">
-                    Explore Courses
-                  </Button>
+                  <div className="hidden sm:block text-zinc-950 font-medium hover:bg-gray-200 px-2 py-2 rounded-md ">
+                    Expore courses
+                  </div>
                 </Link>
               </div>
               <div className="hidden md:block">
                 <Link to="/cart">
-                  <Button variant="outline" className="relative">
-                    <div className='flex gap-1'>
+                  <Button variant="outline">
+                    <div className='flex gap-1 justify-center'>
                       <ShoppingCart className="h-5 w-5" />
-                      <div className='text-sm font-medium'>Cart</div>
+                      <div className=' font-medium'>Cart</div>
                     </div>
                   </Button>
                 </Link>
@@ -60,6 +53,12 @@ export function Studentnav() {
                   </Avatar>
                 </Link>
               </div>
+            </div>
+
+            <div className='md:hidden pr-5'>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -89,11 +88,7 @@ export function Studentnav() {
                     Explore Courses
                   </Button>
                 </Link>
-                <Link to="/cart">
-                  <Button variant="secondary" className="text-sm font-medium w-full">
-                    View Cart
-                  </Button>
-                </Link>
+
               </nav>
             </div>
           </div>

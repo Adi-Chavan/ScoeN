@@ -5,7 +5,7 @@ import { Clock, Star } from "lucide-react"
 
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
-import { Navbar } from "../pages/navbar"
+import { Studentnav } from "../pages/student/studentnav"
 import noteimg from "../components/images/notesimg.png"
 
 export function CourseDetailsPage() {
@@ -53,7 +53,7 @@ export function CourseDetailsPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
+      <Studentnav />
 
       <main className="flex-1 py-8">
         <div className="container px-4 md:px-6">

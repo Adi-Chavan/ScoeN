@@ -43,10 +43,9 @@ export function CourseViewerPage() {
 
                 {/* PDF viewer */}
                 <div className={`flex-1 bg-gray-100 flex flex-col`}>
-
                     <div className="flex-1 flex items-center justify-center p-4">
                         {/* This would be replaced with an actual PDF viewer component */}
-                        <div className="bg-white shadow-lg rounded-lg w-full max-w-3xl aspect-[3/4] flex items-center justify-center">
+                        <div className="bg-white shadow-lg rounded-lg w-full max-w-3xl  flex items-center justify-center aspect-[3/4]">
                             <div className="text-center p-8">
                                 <BookOpen className="h-16 w-16 mx-auto text-gray-400 mb-4" />
                                 <h3 className="text-xl font-bold mb-2">Setting Up Your Development Environment</h3>

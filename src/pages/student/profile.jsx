@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 export function ProfilePage() {
   const [activeTab, setActiveTab] = useState("courses")
+  const [availableCourses, setAvailableCourses] = useState(false)
 
   const [profile] = useState({
     name: "John Doe",
@@ -75,7 +76,7 @@ export function ProfilePage() {
       <div className="min-h-screen">
         <Studentnav />
 
-        <main className="p-6">
+        <main className="p-6 lg:px-16 px-6">
           <div className="mb-8">
             <h1 className="text-2xl font-bold">My Profile</h1>
             <p className="text-gray-600">Manage your profile and account settings</p>
@@ -83,7 +84,7 @@ export function ProfilePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-1">
-              <Card>
+              <Card className="bg-[#F6F5F4]">
                 <CardHeader className="relative pb-0">
                   <div className="absolute top-4 right-4">
                     <Button variant="ghost" size="icon">
@@ -205,7 +206,7 @@ export function ProfilePage() {
 
             <div className="lg:col-span-2">
               <Tabs defaultValue="courses" className="w-full" onValueChange={setActiveTab}>
-                <TabsList className="grid w-full grid-cols-2 ">
+                <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="profile">Profile Details</TabsTrigger>
                   <TabsTrigger value="courses">My Courses</TabsTrigger>
                 </TabsList>
@@ -320,33 +321,42 @@ export function ProfilePage() {
                       <CardDescription>Your courses</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {courses.map((course) => (
-                          <div key={course.id} className="border rounded-lg overflow-hidden">
-                            <div className="relative h-40">
-                              <img
-                                src={course.image}
-                                alt={course.title}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            <div className="p-4">
-                              <h3 className="font-bold mb-1">{course.title}</h3>
-                              <p className="text-sm text-gray-600 mb-2">
-                                Issued by {course.issuer} • {course.date}
-                              </p>
-                              <div className="flex gap-2">
-                                <Link to={`/learn/${course.id}`}>
-                                  <Button size="sm" variant="outline">
-                                    View
-                                  </Button>
-                                </Link>
+                      {courses.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {courses.map((course) => (
+                            <div key={course.id} className="border rounded-lg overflow-hidden">
+                              <div className="relative h-40">
+                                <img
+                                  src={course.image}
+                                  alt={course.title}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
+                              <div className="p-4">
+                                <h3 className="font-bold mb-1">{course.title}</h3>
+                                <p className="text-sm text-gray-600 mb-2">
+                                  Issued by {course.issuer} • {course.date}
+                                </p>
+                                <div className="flex gap-2">
+                                  <Link to={`/learn/${course.id}`}>
+                                    <Button size="sm" variant="outline">
+                                      View
+                                    </Button>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center gap-4 py-8">
+                          <p className="text-gray-500">No courses found.</p>
+                          <Link to="/courses">
+                            <Button>Explore Courses</Button>
+                          </Link>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 </TabsContent>
@@ -355,6 +365,14 @@ export function ProfilePage() {
             </div>
           </div>
         </main>
+
+        <footer className="py-6 border-t">
+        <div className="container">
+          <p className="text-center text-sm text-gray-600">
+            © {new Date().getFullYear()} ScoeN, Inc. All rights reserved.
+          </p>
+        </div>
+      </footer>
       </div>
     </div >
   )

@@ -74,7 +74,7 @@ export function Courses() {
     <div className="flex min-h-screen flex-col">
       <Studentnav />
 
-      <main className="flex-1 py-8">
+      <main className="flex-1 py-8 lg:px-8 px-4">
         <div className="container px-4 md:px-6">
           <div className="mb-8">
             <h1 className="text-2xl font-bold mb-2">All Courses</h1>

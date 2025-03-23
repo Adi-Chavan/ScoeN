@@ -1,37 +1,80 @@
 
-import { Search, ChevronRight, Play, Star, Globe, Award } from "lucide-react"
+import { Search, ChevronRight, Play, Star, Globe, Award, ArrowRight } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
+import { Link } from "react-router-dom"
 import { Navbar } from "./navbar"
 import noteimg from "../components/images/notesimg.png"
 import laptop from "../components/images/Laptop.jpg"
+import NoBG1 from "../components/images/NoBG1.png"
+import NoBG2 from "../components/images/NoBG2.png"
+import Book from "../components/images/books.jpg"
+import Marquee from '../pages/Marquee'
+
+
+const courses = [
+  {
+    id: "1",
+    title: "Complete Web Development Bootcamp",
+    instructor: "Jane Smith",
+    rating: 4.8,
+    reviews: 12453,
+    price: 89.99,
+    discountPrice: 14.99,
+    image: noteimg,
+  },
+  {
+    id: "2",
+    title: "JavaScript Fundamentals: From Zero to Hero",
+    instructor: "John Doe",
+    rating: 4.7,
+    reviews: 8932,
+    price: 94.99,
+    discountPrice: 16.99,
+    image: noteimg,
+  },
+  {
+    id: "3",
+    title: "UI/UX Design Masterclass",
+    instructor: "Alex Johnson",
+    rating: 4.9,
+    reviews: 5621,
+    price: 79.99,
+    discountPrice: 12.99,
+    image: noteimg,
+  },
+]
 
 export function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col ">
       <Navbar />
       <main className="flex-1 relative">
         {/* Hero Section */}
-        <section className="relative bg-gray-100 py-12 md:py-8 px-8">
+        <section className="relative py-12 md:py-8 lg:px-16 px-6">
           <div className="container grid gap-6 md:grid-cols-2 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Learn Anything, On Your Schedule</h1>
-              <p className="text-xl text-gray-600">
-                Access over 210,000 courses taught by real-world experts. Start learning today.
-              </p>
-              <div className="relative max-w-md">
-                <Search className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <Input
-                  type="search"
-                  placeholder="What do you want to learn?"
-                  className="w-full pl-10 h-12 rounded-md"
-                />
-                <Button className="absolute right-1 top-1 h-10 bg-blue-600 hover:bg-blue-700">Search</Button>
+            <div className="md:space-y-6 space-y-3">
+              <p className="text-blue-700 font-semibold mb-4">ज्ञानम् परमम् ध्येयम् सर्वत्र विद्या विजयते</p>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight"> Clear your Backlogs With ScoeN !</h1>
+              <div className="flex flex-col justify-center items-start gap-8">
+                <div className="flex items-center">
+                  <p className="text-xl text-zinc-600">
+                    Access over 210,000 courses taught by real-world experts. Start learning today.
+                  </p>
+                </div>
+
+                <Link
+                  to="#"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-700 transition-colors text-white font-semibold"
+                >
+                  Explore
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </div>
             </div>
-            <div className="relative hidden md:block">
+            <div className="relative">
               <img
-                src={laptop}
+                src={NoBG2}
                 alt="Students learning"
                 className="rounded-lg object-cover"
               />
@@ -39,88 +82,58 @@ export function HomePage() {
           </div>
         </section>
 
-        {/* Trusted By Section */}
+
         <section className="py-8 bg-white border-y">
           <div className="container">
             <p className="text-center text-gray-600 mb-6">
               Trusted by over 100 Colleges and millions of learners around the world
             </p>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-              {["SCOE", "SKN", "NBN", "COEP", "PICT"].map((company) => (
-                <div key={company} className="flex items-center justify-center">
-                  <p className="text-lg font-semibold text-gray-500">{company}</p>
-                </div>
-              ))}
+            <div>
+              <Marquee />
             </div>
           </div>
         </section>
 
+
+
+
         {/* Featured Courses Section */}
-        <section className="py-12 md:py-24 px-8">
+        <section className="py-12 md:py-24 lg:px-16 px-6">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">Featured Courses</h2>
-              <Button variant="div" className="gap-1 text-blue-600">
+              <h2 className="text-4xl font-bold">Featured Courses</h2>
+              <Button variant="div" className="gap-1 text-blue-600 text-md">
                 View all courses <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "Complete Web Development Bootcamp",
-                  instructor: "Jane Smith",
-                  rating: 4.8,
-                  reviews: 12453,
-                  price: "₹89.99",
-                  image: noteimg,
-                },
-                {
-                  title: "Data Science and Machine Learning",
-                  instructor: "John Doe",
-                  rating: 4.7,
-                  reviews: 8932,
-                  price: "₹89.99",
-                  image: noteimg,
-                },
-                {
-                  title: "UI/UX Design Masterclass",
-                  instructor: "Alex Johnson",
-                  rating: 4.9,
-                  reviews: 5621,
-                  price: "₹79.99",
-                  image: noteimg,
-                },
-                {
-                  title: "Digital Marketing Fundamentals",
-                  instructor: "Sarah Williams",
-                  rating: 4.6,
-                  reviews: 7845,
-                  price: "₹69.99",
-                  image: noteimg,
-                },
-              ].map((course, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {courses.map((course) => (
                 <div
-                  key={index}
-                  className="group border rounded-lg overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+                  key={course.id}
+                  className="border rounded-lg overflow-hidden bg-[#F6F5F4] shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="relative">
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                      <Button variant="secondary" size="sm" className="gap-1">
-                        <Play className="h-4 w-4" /> Preview
-                      </Button>
-                    </div>
+                    <Link to={`/courses/${course.id}`}>
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        width={300}
+                        height={200}
+                        className="w-full h-40 object-cover"
+                      />
+                    </Link>
                   </div>
-                  <div className="p-4 flex-1 flex flex-col">
-                    <h3 className="font-bold line-clamp-2 mb-1">{course.title}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{course.instructor}</p>
+
+                  <div className="p-4">
+                    <Link to={`/courses/${course.id}`}>
+                      <h2 className="font-bold text-lg mb-1 hover:text-blue-600 transition-colors line-clamp-2">
+                        {course.title}
+                      </h2>
+                    </Link>
+
+                    <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
+
                     <div className="flex items-center gap-1 mb-2">
                       <span className="font-bold text-amber-500">{course.rating}</span>
                       <div className="flex">
@@ -135,8 +148,12 @@ export function HomePage() {
                       </div>
                       <span className="text-xs text-gray-500">({course.reviews.toLocaleString()})</span>
                     </div>
-                    <div className="mt-auto">
-                      <p className="font-bold">{course.price}</p>
+
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="font-bold text-lg">${course.discountPrice}</span>
+                        <span className="text-sm text-gray-500 line-through ml-2">${course.price}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -146,18 +163,18 @@ export function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-12 md:py-24">
+        <section className="py-12 md:py-24 lg:px-16 px-6">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Learn with ScoeN</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold mb-4">Why Learn with ScoeN</h2>
+              <p className="text-gray-600">
                 Join millions of students around the world learning skills for the future
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="flex flex-col items-center text-center p-6">
-                <div className="bg-blue-100 p-3 rounded-full mb-4">
+            <div className="grid md:grid-cols-3 gap-6 ">
+              <div className="flex flex-col items-start p-6 bg-[#F6F5F4] rounded-2xl">
+                <div className="p-3 mb-4">
                   <Play className="h-6 w-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Learn at Your Own Pace</h3>
@@ -166,8 +183,8 @@ export function HomePage() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center p-6">
-                <div className="bg-blue-100 p-3 rounded-full mb-4">
+              <div className="flex flex-col items-start p-6 bg-[#F6F5F4] rounded-2xl">
+                <div className="p-3 mb-4">
                   <Globe className="h-6 w-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Expert Instructors</h3>
@@ -176,8 +193,8 @@ export function HomePage() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center p-6">
-                <div className="bg-blue-100 p-3 rounded-full mb-4">
+              <div className="flex flex-col items-start p-6 bg-[#F6F5F4] rounded-2xl">
+                <div className="p-3 mb-4">
                   <Award className="h-6 w-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Certificates</h3>
@@ -190,7 +207,7 @@ export function HomePage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-12 md:py-24 bg-gray-100 px-8">
+        <section className="py-12 md:py-24 bg-[#F6F5F4] px-8">
           <div className="container">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">What Our Students Say</h2>
 
@@ -220,7 +237,7 @@ export function HomePage() {
               ].map((testimonial, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg border">
                   <div className="flex items-center gap-4 mb-4">
-                    {/* <Image
+                    {/* <img
                       src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
                       width={50}
@@ -240,7 +257,7 @@ export function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t py-12 bg-gray-100 px-8">
+      <footer className="border-t py-12 bg-[#151515] px-8 rounded-t-3xl text-zinc-300">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <div className="col-span-2 md:col-span-1">
@@ -254,9 +271,9 @@ export function HomePage() {
                 /> */}
                 ScoeN
               </div>
-              <p className="text-sm text-gray-600 mb-4">Learn from anywhere, anytime. Access courses on-demand.</p>
+              <p className="text-sm text-gray-400 mb-4">Learn from anywhere, anytime. Access courses on-demand.</p>
               <div className="flex gap-4">
-                <div className="text-gray-500 hover:text-gray-800">
+                <div className="text-gray-400 hover:text-gray-100">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -271,7 +288,7 @@ export function HomePage() {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </div>
-                <div className="text-gray-500 hover:text-gray-800">
+                <div className="text-gray-400 hover:text-gray-100">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -286,7 +303,7 @@ export function HomePage() {
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
                 </div>
-                <div className="text-gray-500 hover:text-gray-800">
+                <div className="text-gray-400 hover:text-gray-100">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -303,7 +320,7 @@ export function HomePage() {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </div>
-                <div className="text-gray-500 hover:text-gray-800">
+                <div className="text-gray-400 hover:text-gray-100">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -327,22 +344,22 @@ export function HomePage() {
               <h3 className="font-bold mb-4">Learn</h3>
               <ul className="space-y-2">
                 <li>
-                  <div className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Popular Courses
                   </div>
                 </li>
                 <li>
-                  <div className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Categories
                   </div>
                 </li>
                 <li>
-                  <div className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Free Courses
                   </div>
                 </li>
                 <li>
-                  <div className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     ScoeN Pro
                   </div>
                 </li>
@@ -353,22 +370,22 @@ export function HomePage() {
               <h3 className="font-bold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     About Us
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Careers
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Blog
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Partners
                   </div>
                 </li>
@@ -379,22 +396,22 @@ export function HomePage() {
               <h3 className="font-bold mb-4">Support</h3>
               <ul className="space-y-2">
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Help Center
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Contact Us
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Privacy Policy
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Terms of Service
                   </div>
                 </li>
@@ -405,17 +422,17 @@ export function HomePage() {
               <h3 className="font-bold mb-4">Teach</h3>
               <ul className="space-y-2">
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Become an Instructor
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Instructor Resources
                   </div>
                 </li>
                 <li>
-                  <div  className="text-sm text-gray-600 hover:text-gray-900">
+                  <div className="text-sm text-gray-400 hover:text-gray-100">
                     Affiliate Program
                   </div>
                 </li>
@@ -424,20 +441,20 @@ export function HomePage() {
           </div>
 
           <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600 mb-4 md:mb-0">
+            <p className="text-sm text-gray-400 mb-4 md:mb-0">
               © {new Date().getFullYear()} ScoeN, Inc. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <div  className="text-sm text-gray-600 hover:text-gray-900">
+              <div className="text-sm text-gray-400 hover:text-gray-100">
                 Privacy Policy
               </div>
-              <div  className="text-sm text-gray-600 hover:text-gray-900">
+              <div className="text-sm text-gray-400 hover:text-gray-100">
                 Terms of Service
               </div>
-              <div  className="text-sm text-gray-600 hover:text-gray-900">
+              <div className="text-sm text-gray-400 hover:text-gray-100">
                 Cookie Settings
               </div>
-              <div  className="text-sm text-gray-600 hover:text-gray-900">
+              <div className="text-sm text-gray-400 hover:text-gray-100">
                 Sitemap
               </div>
             </div>

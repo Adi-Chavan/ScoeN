@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-// import Image from "next/image"
 import { Search, Menu, X } from "lucide-react"
 
 import { Button } from "../components/ui/button"
@@ -11,11 +10,11 @@ export function Navbar() {
   // const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white px-8 drop-shadow-lg drop-shadow-blue-600/50">
+    <header className="static top-0 z-50 w-full bg-[#F6F5F4] lg:px-16 px-6 ">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
-            {/* <Image
+            {/* <img
               src="/placeholder.svg?height=32&width=32"
               alt="ScoeN Logo"
               width={32}
@@ -24,36 +23,33 @@ export function Navbar() {
             /> */}
             ScoeN
           </Link>
-        </div>
 
-        <div className="hidden md:flex flex-1 max-w-md mx-4">
-          <div className="relative w-full">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-            <Input type="search" placeholder="Search for anything" className="w-full pl-8 rounded-full bg-gray-100" />
+          <div className="flex items-center gap-4 pl-4">
+            <Link to="/profile" className="hidden md:block text-zinc-700 font-medium hover:text-blue-700">
+              About Us
+            </Link>
+            <Link to="/" className="hidden md:block text-zinc-700 font-medium hover:text-blue-700">
+              Explore Courses
+            </Link>
           </div>
         </div>
 
+
         <div className="flex items-center gap-4">
-          <Link to="/profile" className="hidden md:block text-sm font-medium hover:text-blue-600">
-            About Us
-          </Link>
-          <Link to="/" className="hidden md:block text-sm font-medium hover:text-blue-600">
-            Explore Courses
-          </Link>
           <Link to="/signin">
-           <Button className="hidden sm:block text-sm font-medium ">
-             Sign In
-           </Button> 
+            <div className="hidden sm:block text-zinc-700 font-medium hover:text-blue-700 ">
+              Sign In
+            </div>
           </Link>
           <Link to="/signup" className="hidden sm:block">
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+            <div className="px-4 py-2 rounded-full border border-zinc-300 text-zinc-800 hover:bg-zinc-800 hover:text-zinc-50 transition-colors">
               Sign Up
-            </Button>
+            </div>
           </Link>
 
           {/* Mobile menu button */}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
       </div>
@@ -68,35 +64,6 @@ export function Navbar() {
             </div>
 
             <nav className="flex flex-col gap-4">
-              {/* <div className="border-b pb-2">
-                <button
-                  className="flex items-center justify-between w-full text-sm font-medium py-2"
-                  onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-                >
-                  Categories
-                  <span>{isCategoriesOpen ? "−" : "+"}</span>
-                </button>
-                {isCategoriesOpen && (
-                  <div className="grid gap-2 mt-2 pl-4">
-                    <div className="text-sm py-1 hover:text-blue-600">
-                      Development
-                    </div>
-                    <div className="text-sm py-1 hover:text-blue-600">
-                      Business
-                    </div>
-                    <div className="text-sm py-1 hover:text-blue-600">
-                      IT & Software
-                    </div>
-                    <div className="text-sm py-1 hover:text-blue-600">
-                      Design
-                    </div>
-                    <div className="text-sm py-1 hover:text-blue-600">
-                      Marketing
-                    </div>
-                  </div>
-                )}
-              </div> */}
-
               <Link to="/profile">
                 <div className="text-sm font-medium py-2">
                   About Us
