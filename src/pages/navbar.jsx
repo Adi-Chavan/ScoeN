@@ -10,7 +10,7 @@ export function Navbar() {
   // const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
 
   return (
-    <header className="static top-0 z-50 w-full bg-[#F6F5F4] lg:px-16 px-6 ">
+    <header className="static top-0 z-50 w-full lg:bg-[#F6F5F4] md:bg-[#F6F5F4] lg:px-16 px-6 ">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
@@ -58,20 +58,15 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden border-t">
           <div className="container py-4">
-            <div className="relative mb-4">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-              <Input type="search" placeholder="Search for anything" className="w-full pl-8 bg-gray-100" />
-            </div>
-
             <nav className="flex flex-col gap-4">
               <Link to="/profile">
-                <div className="text-sm font-medium py-2">
+                <div className="text-md font-medium py-2">
                   About Us
                 </div>
               </Link>
               <Link to="/">
-                <div className="text-sm font-medium py-2">
-                  Exlpore Courses
+                <div className="text-md font-medium py-2">
+                  Explore Courses
                 </div>
               </Link>
 
@@ -82,7 +77,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link to="/signup" className="flex-1">
-                  <Button className="w-full">Sign Up</Button>
+                  <Button variant="secondary" className="w-full border">Sign Up</Button>
                 </Link>
               </div>
             </nav>

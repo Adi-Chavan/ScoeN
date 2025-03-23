@@ -57,13 +57,13 @@ export function Studentnav() {
 
             <div className='md:hidden pr-5'>
               <Link to="/cart">
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-6 w-6" />
               </Link>
             </div>
 
             {/* Mobile menu button */}
             <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -72,11 +72,6 @@ export function Studentnav() {
         {isMenuOpen && (
           <div className="md:hidden border-t">
             <div className="container py-4">
-              <div className="relative mb-4">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-                <Input type="search" placeholder="Search for anything" className="w-full pl-8 bg-gray-100" />
-              </div>
-
               <nav className="flex flex-col gap-4">
                 <Link to="/profile">
                   <Button variant="secondary" className="text-sm font-medium w-full">
