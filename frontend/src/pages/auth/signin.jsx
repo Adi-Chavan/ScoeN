@@ -17,22 +17,25 @@ export function SignInPage() {
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const response = await fetch('http://localhost:5000/auth/signin', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
-                credentials: 'include',
+                credentials: 'include', // For cookies/sessions (if used)
             });
-
+    
             if (response.ok) {
                 const data = await response.json();
                 console.log('Logged in successfully:', data);
+    
+                // ✅ Store userId in localStorage
+                localStorage.setItem("userId", data.user._id);
+    
                 navigate('/'); // Redirect to dashboard or home page
             } else {
                 const errorData = await response.json();
@@ -42,6 +45,33 @@ export function SignInPage() {
             console.error('Error during login:', error);
         }
     };
+    
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         const response = await fetch('http://localhost:5000/auth/signin', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ email, password }),
+    //             credentials: 'include',
+    //         });
+
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             console.log('Logged in successfully:', data);
+    //             navigate('/'); // Redirect to dashboard or home page
+    //         } else {
+    //             const errorData = await response.json();
+    //             console.error('Login failed:', errorData);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error during login:', error);
+    //     }
+    // };
 
     return (
         <div className="min-h-screen flex flex-col">
