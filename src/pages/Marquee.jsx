@@ -3,12 +3,8 @@ import { University } from "lucide-react";
 
 const Marquee = () => {
   const items = [
-    "SCOE",
-    "SKN",
-    "NBN",
-    "RMD",
-    "COEP",
-    "PICT",
+    "Student Community Of Engineering Notes" ,
+    "SCOEN"
   ];
 
   return (

@@ -8,6 +8,7 @@ import { Courses } from "./pages/courses";
 import { CourseDetailsPage } from "./pages/coursesDetail";
 import { CartPage } from "./pages/cart";
 import { CourseViewerPage } from "./pages/student/viewCourses";
+import { AboutPage } from "./pages/AboutPage";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/courses/:id" element={<CourseDetailsPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/learn/:id" element={<CourseViewerPage />} />
+        <Route path="/aboutus" element={<AboutPage />} />
       </Routes>
     </Router>
   )

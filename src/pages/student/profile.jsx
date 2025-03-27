@@ -9,7 +9,7 @@ import { Studentnav } from "./studentnav"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
-
+import { Footer } from "../footer"
 
 export function ProfilePage() {
   const [activeTab, setActiveTab] = useState("courses")
@@ -27,20 +27,20 @@ export function ProfilePage() {
   })
 
   const [courses] = useState([
-    {
-      id: 1,
-      title: "Web Development Bootcamp",
-      issuer: "LearnHub",
-      date: "March 2023",
-      image: "/placeholder.svg?height=200&width=300",
-    },
-    {
-      id: 2,
-      title: "JavaScript Fundamentals",
-      issuer: "LearnHub",
-      date: "February 2023",
-      image: "/placeholder.svg?height=200&width=300",
-    },
+    // {
+    //   id: 1,
+    //   title: "Web Development Bootcamp",
+    //   issuer: "LearnHub",
+    //   date: "March 2023",
+    //   image: "/placeholder.svg?height=200&width=300",
+    // },
+    // {
+    //   id: 2,
+    //   title: "JavaScript Fundamentals",
+    //   issuer: "LearnHub",
+    //   date: "February 2023",
+    //   image: "/placeholder.svg?height=200&width=300",
+    // },
   ])
 
 

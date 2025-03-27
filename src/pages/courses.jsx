@@ -1,8 +1,17 @@
 import React from 'react'
-import { Star } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Studentnav } from './student/studentnav'
-import noteimg from '../components/images/notesimg.png'
+import m2 from '../components/images/Subjects/m2.jpg'
+import chem from '../components/images/Subjects/chem.jpg'
+import phy from '../components/images/Subjects/phy.jpg'
+import bee from '../components/images/Subjects/bee.jpg'
+import bxe from '../components/images/Subjects/bxe.jpg'
+import graphics from '../components/images/Subjects/graphics.jpg'
+import mech from '../components/images/Subjects/mech.jpg'
+import pps from '../components/images/Subjects/pps.jpg'
+import fpl from '../components/images/Subjects/fpl.jpg'
+import m1 from '../components/images/Subjects/m1.jpg'
+
 
 
 export function Courses() {
@@ -10,63 +19,73 @@ export function Courses() {
   const courses = [
     {
       id: "1",
-      title: "Complete Web Development Bootcamp",
-      instructor: "Jane Smith",
-      rating: 4.8,
-      reviews: 12453,
-      price: 89.99,
-      discountPrice: 14.99,
-      image: noteimg,
+      title: "Engineering Physics ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: phy,
     },
     {
       id: "2",
-      title: "JavaScript Fundamentals: From Zero to Hero",
-      instructor: "John Doe",
-      rating: 4.7,
-      reviews: 8932,
-      price: 94.99,
-      discountPrice: 16.99,
-      image: "/placeholder.svg?height=200&width=300"
+      title: "Engineering Chemistry ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: chem,
     },
     {
       id: "3",
-      title: "UI/UX Design Masterclass",
-      instructor: "Alex Johnson",
-      rating: 4.9,
-      reviews: 5621,
-      price: 79.99,
-      discountPrice: 12.99,
-      image: "/placeholder.svg?height=200&width=300"
+      title: "Engineering Mathematics II",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: m2,
     },
     {
       id: "4",
-      title: "Python for Data Science and Machine Learning",
-      instructor: "Sarah Williams",
-      rating: 4.6,
-      reviews: 7845,
-      price: 99.99,
-      discountPrice: 17.99,
-      image: "/placeholder.svg?height=200&width=300"
+      title: "Basics Electrical Engineering",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: bee
     },
     {
       id: "5",
-      title: "React.js: Build Modern Web Applications",
-      instructor: "Michael Chen",
-      rating: 4.8,
-      reviews: 6234,
-      price: 84.99,
-      discountPrice: 15.99,
-      image: "/placeholder.svg?height=200&width=300"
+      title: "Engineering Mechanics ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: mech
     },
     {
       id: "6",
-      title: "Digital Marketing Fundamentals",
-      instructor: "Emily Davis",
-      rating: 4.5,
-      reviews: 4532,
-      price: 69.99,
-      discountPrice: 13.99,
-      image: "/placeholder.svg?height=200&width=300"
+      title: "Engineering Graphics ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: graphics
+    },
+    {
+      id: "7",
+      title: "Basics Electronic Engineering ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: bxe
+    },
+    {
+      id: "8",
+      title: "Programming and Problem Solving ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: pps
+    },
+    {
+      id: "9",
+      title: "Fundamentals Of Programming Language ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: fpl
+    },
+    {
+      id: "10",
+      title: "Mathematics 1 ",
+      price: 49.99,
+      discountPrice: 10.00,
+      image: m1
     },
   ]
 
@@ -85,7 +104,7 @@ export function Courses() {
             {courses.map((course) => (
               <div
                 key={course.id}
-                className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="border rounded-lg overflow-hidden bg-[#F6F5F4] shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative">
                 <Link to={`/courses/${course.id}`}>
@@ -106,30 +125,9 @@ export function Courses() {
                     </h2>
                   </Link>
 
-                  <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
-
-                  <div className="flex items-center gap-1 mb-2">
-                    <span className="font-bold text-amber-500">{course.rating}</span>
-                    <div className="flex">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-4 w-4 ${i < Math.floor(course.rating) ? "fill-amber-500 text-amber-500" : "text-gray-400"}`}
-                          />
-                        ))}
+                  <div>
+                      <span className="font-bold text-lg">₹{course.discountPrice}</span>
                     </div>
-                    <span className="text-xs text-gray-500">({course.reviews.toLocaleString()})</span>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="font-bold text-lg">${course.discountPrice}</span>
-                      <span className="text-sm text-gray-500 line-through ml-2">${course.price}</span>
-                    </div>
-
-                  </div>
                 </div>
               </div>
             ))}

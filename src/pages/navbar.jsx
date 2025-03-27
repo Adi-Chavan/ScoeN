@@ -15,11 +15,10 @@ export function Navbar() {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 font-bold text-3xl">
             {/* <img
-              src="/placeholder.svg?height=32&width=32"
+              src="SCOENLogo.png"
               alt="ScoeN Logo"
-              width={32}
-              height={32}
-              className="rounded"
+              width={40}
+              height={40}
             /> */}
             ScoeN
           </Link>
